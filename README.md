@@ -2,7 +2,7 @@
 
 **Assumptions/Considerations:**
 1. Developed the mentioned feature such that it can be used as dependency in any java based application (by including the JAR - artifact generated from this application)
-2. It can be modified to expos APIs for different operation or only calculate method (Not doing it since was not mentioned in assignment)
+2. It can also be modified to expose APIs for different operation or only calculate method (Not doing it, since was not mentioned in assignment explicitly)
 
 
 **Design Decisions:**
@@ -34,10 +34,6 @@ BasicCalculator calculator = new Calculator();
 ```
 
 ```java
-BasicCalculator calculator = new Calculator().withValue(10);
-```
-
-```java
 BasicCalculator calculator = new Calculator();
 Number result = calculator.calculate(Operation.ADD, 1, 2);
 ```
@@ -48,7 +44,7 @@ Number result = calculator.calculate("ADD", 1, 2);
 ```
 
 ```java
-Number result = new Calculator().withValue(1)
+Number result = ChainingCalculator.builderInstance(1)
         .apply("Add", 2)
         .apply(Operation.DIVIDE, 2)
         .apply(Operation.MULTIPLY, 10)
